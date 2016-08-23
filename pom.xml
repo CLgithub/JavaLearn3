@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>		<!-- pom版本 -->
+	<groupId>JavaLearn3</groupId>			<!-- 组id，maven用坐标的概念来标识jar包 -->
+	<artifactId>JavaLearn3</artifactId>		<!-- 构建物id -->
+	<packaging>war</packaging>				<!-- 发布的是war包或jar包 -->
+	<version>0.1-release</version>			<!-- 版本：SNAPSHOT:测试版本，镜像版本 release：发现版本，最终版本 -->
+	<name>JavaLearn3 Maven Webapp</name>	<!-- 项目名称 -->
+	<url>http://maven.apache.org</url>
+	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.9</version>
+			<scope>test</scope>				<!-- 依赖的jar包的使用范围 test测试，compile编译（默认） -->
+		</dependency>
+		<!-- 引用自己发布到私服的jar包 -->
+		<dependency>
+			<groupId>mavenTest1</groupId>
+			<artifactId>mavenTest1</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+
+	<!--第三方jar包下载的地址默认是从中心仓库下载 -->
+	<!-- 配置一个私服，先访问私服，私服没有再从中心仓库下载 -->
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<!-- 配置仓库id -->
+			<!-- <id>central</id> -->
+			<id>maven-public</id>
+			<!-- 配置仓库名称 -->
+			<!-- name><Central Repository</name> -->
+			<name>maven-public</name>
+			<!-- 配置仓库地址 -->
+			<!-- <url>http://repo.maven.apache.org/maven2</url> -->
+			<url>http://localhost:8081/repository/maven-public/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+	<!--maven的生命周期插件的下载地址 -->
+	<pluginRepositories>
+		<pluginRepository>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<!-- 配置仓库id -->
+			<!-- <id>central</id> -->
+			<id>maven-public</id>
+			<!-- 配置仓库名称 -->
+			<!-- name><Central Repository</name> -->
+			<name>maven-public</name>
+			<!-- 配置仓库地址 -->
+			<!-- <url>http://repo.maven.apache.org/maven2</url> -->
+			<url>http://localhost:8081/repository/maven-public/</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	<!-- 分销管理，把jar包发布到私服 -->
+	<distributionManagement>
+		<!-- 发布到快照版本的仓库，即测试版本仓库 -->
+		<snapshotRepository>
+			<id>LR-Snapshot</id><!-- 配置放到那个仓库 -->
+			<url>http://localhost:8081/repository/LR-Snapshot/</url><!--对应的仓库地址 -->
+		</snapshotRepository>
+		<!-- 发布到发行版本的仓库，也可以发布到3rd party仓库 -->
+		<repository>
+			<id>LR-release</id><!-- 配置放到那个仓库 -->
+			<url>http://localhost:8081/repository/LR-release/</url><!-- 对应的仓库地址 -->
+		</repository>
+	</distributionManagement>
+</project>
