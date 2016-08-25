@@ -1,12 +1,11 @@
-package activiti;
-import org.activiti.engine.ManagementService;
+package day81activity;
+
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
-import org.junit.Test;
 
 /**
  * 模拟activity工作流框架执行
