@@ -1,11 +1,19 @@
 package day81activity;
 
+import java.util.List;
+
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.RepositoryService;
+import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
+import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.task.Task;
+import org.activiti.engine.task.TaskQuery;
+import org.junit.Test;
 
 /**
  * 模拟activity工作流框架执行
@@ -19,7 +27,13 @@ public class TestActiviti {
 		// 1.得到流程引擎对象
 		ProcessEngine processEngine = createProcessEngine3();
 		// 部署流程引擎
-		deploy(processEngine);
+//		deploy(processEngine);
+		//启动流程
+//		startProess(processEngine);
+		//查询任务
+//		queryTask(processEngine);
+		//处理任务
+		compileTask(processEngine);
 	}
 
 	/**
@@ -85,6 +99,46 @@ public class TestActiviti {
 		Deployment deploy = dBuilder.deploy();
 
 		System.out.println("部署的流程id" + deploy.getId());
-
+	}
+	
+	//执行流程
+	public static void startProess(ProcessEngine processEngine){
+		//先取得运行时服务
+		RuntimeService runtimeService = processEngine.getRuntimeService();
+		//通过流程定义的key来来启动一个流程实例
+		String processDefinitionKey="leaveBill";
+		ProcessInstance pInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey);
+		//打印流程实例对象pInstance的属性
+		System.out.println("流程实例id:"+pInstance.getId());
+		System.out.println("流程定义id:"+pInstance.getProcessDefinitionId());
+	}
+	
+	//查询任务
+	public static void queryTask(ProcessEngine processEngine){
+		//任务办理人
+		String assignee="小白";
+		//先得到任务查询服务
+		TaskService taskService = processEngine.getTaskService();
+		//通过查询服务取得任务查询对象
+		TaskQuery taskQuery = taskService.createTaskQuery();
+		taskQuery.taskAssignee(assignee);		//指定办理人
+		List<Task> list = taskQuery.list();		//得到任务列表
+		if(list!=null){
+			for(Task task:list){
+				System.out.println("任务办理人："+task.getAssignee());
+				System.out.println("任务ID："+task.getId());
+				System.out.println("任务名字："+task.getName());
+			}
+		}
+	}
+	
+	//办理任务
+	public static void compileTask(ProcessEngine processEngine){
+		//得到任务服务
+		TaskService taskService = processEngine.getTaskService();
+		//根据任务id办理任务
+		String taskID="10002";
+		taskService.complete(taskID);
+		System.out.println("任务执行完成");
 	}
 }

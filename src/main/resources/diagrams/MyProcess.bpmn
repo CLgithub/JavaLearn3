@@ -3,7 +3,7 @@
   <process id="leaveBill" name="leaveProcess" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
     <userTask id="usertask1" name="请假申请" activiti:assignee="小明"></userTask>
-    <userTask id="usertask2" name="审批【新主管】" activiti:assignee="小白"></userTask>
+    <userTask id="usertask2" name="审批【新主管2】" activiti:assignee="小白"></userTask>
     <userTask id="usertask3" name="审批【经理】" activiti:assignee="小黑"></userTask>
     <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
