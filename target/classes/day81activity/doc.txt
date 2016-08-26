@@ -45,13 +45,13 @@ Activiti 工作流的框架
 		- activiti.cfg.xml
 		- ProcessEngineConfigration
 		- ProcessEngine
-		- RepositoryService
-		- TaskService
-		- IdentityService
-		- FormService 
-		- RuntimeService
-		- ManagementService
-		- HistoryService
+		- RepositoryService		//仓库服务，用于管理流程定义
+		- TaskService			//任务服务
+		- IdentityService		//用户与组服务
+		- FormService 			//表单服务
+		- RuntimeService		//运行时服务
+		- ManagementService		//管理服务
+		- HistoryService		//历史服务
 		
 三、HelloActiviti程序（模拟Activiti流程执行）
 	1. 设置流程定义图bpmn
@@ -74,8 +74,5 @@ Activiti 工作流的框架
 	5. 查看我的个人任务
 	6. 完成我的个人任务
 	
-		select * from act_re_deployment;	-- 部署表
-		select * from act_ge_property;		-- 通用属性表 id生成策略，next.dbid 影响的是部署id
-		select * from act_re_procdef;			-- 流程定义表
-		select * from act_ru_execution;		-- 流程实例对象,执行对象,id和proc_inst_id是流程实例的id，proc_def_id是流程定义的id，act_id是当前处于任务的id
-		select * from act_ru_task;				-- 任务表
+		
+		

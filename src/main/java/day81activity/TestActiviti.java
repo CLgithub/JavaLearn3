@@ -86,7 +86,7 @@ public class TestActiviti {
 		return ProcessEngines.getDefaultProcessEngine();// 默认会加载类路径下的activiti.cfg.xml文件
 	}
 
-	// 部署流程引擎
+	// 部署流程
 	public static void deploy(ProcessEngine processEngine) {
 		// 先得到仓库服务,用于管理流程定义
 		RepositoryService repositoryService = processEngine.getRepositoryService();
