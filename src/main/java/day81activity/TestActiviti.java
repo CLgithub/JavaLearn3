@@ -27,13 +27,13 @@ public class TestActiviti {
 		// 1.得到流程引擎对象
 		ProcessEngine processEngine = createProcessEngine3();
 		// 部署流程引擎
-//		deploy(processEngine);
+		deploy(processEngine);
 		//启动流程
 //		startProess(processEngine);
 		//查询任务
 //		queryTask(processEngine);
 		//处理任务
-		compileTask(processEngine);
+//		compileTask(processEngine);
 	}
 
 	/**
