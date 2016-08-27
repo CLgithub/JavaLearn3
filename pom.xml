@@ -50,11 +50,6 @@
 			<artifactId>slf4j-jdk14</artifactId>
 			<version>1.7.6</version>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-		</dependency>
 		<!-- activiti end-->
 
 		<!-- 引用自己发布到私服的jar包 -->
@@ -73,11 +68,17 @@
 				<enabled>false</enabled>
 			</snapshots>
 			<!-- 配置仓库id -->
-			<id>maven-public</id>
 			<!-- 配置仓库名称 -->
-			<name>maven-public</name>
 			<!-- 配置仓库地址 -->
-			<url>http://localhost:8081/repository/maven-public/</url>
+			
+			<id>maven-public</id>
+			<name>maven-public</name>
+			<url>http://localhost:8081/repository/maven-public/</url> 
+			
+			<!-- 中央服务器 -->
+			<!-- <id>central</id>
+			<name>Central Repository</name>
+			<url>http://repo.maven.apache.org/maven2</url> -->
 			<layout>default</layout>
 		</repository>
 	</repositories>
@@ -88,16 +89,15 @@
 				<updatePolicy>never</updatePolicy>
 			</releases>
 			<!-- 配置仓库id -->
-			<id>maven-public</id>
 			<!-- 配置仓库名称 -->
-			<name>maven-public</name>
 			<!-- 配置仓库地址 -->
-			<url>http://localhost:8081/repository/maven-public/</url>
-			<!-- 中央服务器
-			<id>central</id>
+			<id>maven-public</id>
+			<name>maven-public</name>
+			<url>http://localhost:8081/repository/maven-public/</url> 
+			<!-- 中央服务器 -->
+			<!-- <id>central</id>
 			<name>Central Repository</name>
-			<url>http://repo.maven.apache.org/maven2</url>
-			 -->
+			<url>http://repo.maven.apache.org/maven2</url> -->
 			<layout>default</layout>
 			<snapshots>
 				<enabled>false</enabled>
