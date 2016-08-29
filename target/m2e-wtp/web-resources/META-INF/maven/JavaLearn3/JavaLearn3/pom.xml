@@ -53,11 +53,11 @@
 		<!-- activiti end-->
 
 		<!-- 引用自己发布到私服的jar包 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>mavenTest1</groupId>
 			<artifactId>mavenTest1</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<!--第三方jar包下载的地址默认是从中心仓库下载 -->
@@ -71,14 +71,14 @@
 			<!-- 配置仓库名称 -->
 			<!-- 配置仓库地址 -->
 			
-			<id>maven-public</id>
+			<!-- <id>maven-public</id>
 			<name>maven-public</name>
-			<url>http://localhost:8081/repository/maven-public/</url> 
+			<url>http://localhost:8081/repository/maven-public/</url> -->
 			
 			<!-- 中央服务器 -->
-			<!-- <id>central</id>
+			<id>central</id>
 			<name>Central Repository</name>
-			<url>http://repo.maven.apache.org/maven2</url> -->
+			<url>http://repo.maven.apache.org/maven2</url>
 			<layout>default</layout>
 		</repository>
 	</repositories>
@@ -91,13 +91,13 @@
 			<!-- 配置仓库id -->
 			<!-- 配置仓库名称 -->
 			<!-- 配置仓库地址 -->
-			<id>maven-public</id>
+			<!-- <id>maven-public</id>
 			<name>maven-public</name>
-			<url>http://localhost:8081/repository/maven-public/</url> 
+			<url>http://localhost:8081/repository/maven-public/</url> -->
 			<!-- 中央服务器 -->
-			<!-- <id>central</id>
+			<id>central</id>
 			<name>Central Repository</name>
-			<url>http://repo.maven.apache.org/maven2</url> -->
+			<url>http://repo.maven.apache.org/maven2</url>
 			<layout>default</layout>
 			<snapshots>
 				<enabled>false</enabled>
