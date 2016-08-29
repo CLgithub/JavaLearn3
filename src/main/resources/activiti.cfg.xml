@@ -16,7 +16,7 @@
 		<property name="jdbcDriver" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl"
 			value="jdbc:mysql://localhost:3306/activitiDB?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf8" />
-		<property name="jdbcUsername" value="root" />
+		<property name="jdbcUsername" value="L" />
 		<property name="jdbcPassword" value="123456" />
 		
 		<!-- 配置创建表的策略 :没有表时，自动创建-->

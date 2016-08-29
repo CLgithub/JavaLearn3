@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
+import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.history.HistoricProcessInstance;
 import org.activiti.engine.history.HistoricTaskInstance;
+import org.activiti.engine.repository.Deployment;
+import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.task.TaskQuery;
@@ -25,6 +28,23 @@ public class ProcessInstanceAndTask {
 	private ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 
 	// 部署流程定义，采用buyBull
+	@Test
+	public void deployProcessDefi(){
+		//得到仓库服务
+		RepositoryService repositoryService = processEngine.getRepositoryService();
+		//通过仓库服务得到部署构建器
+		DeploymentBuilder dBuilder = repositoryService.createDeployment();
+		//设置部署属性
+		dBuilder.addClasspathResource("diagrams/BuyBill_bpmn.bpmn");
+		dBuilder.addClasspathResource("diagrams/BuyBill_bpmn.png");
+		dBuilder.name("采购流程");
+		//部署流程
+		Deployment deployment = dBuilder.deploy();
+		
+		System.out.println("部署ID："+deployment.getId());
+		System.out.println("部署名称："+deployment.getName());
+	}
+	
 	// 执行流程，开始跑流程
 	@Test
 	public void startProcess() {
@@ -58,7 +78,7 @@ public class ProcessInstanceAndTask {
 		//得到任务服务
 		TaskService taskService = processEngine.getTaskService();
 		//根据任务id办理任务
-		String taskID="22502";
+		String taskID="10002";
 		taskService.complete(taskID);
 		System.out.println("任务执行完成");
 	}
@@ -66,7 +86,7 @@ public class ProcessInstanceAndTask {
 	//查询流程实例状态
 	@Test
 	public void getProcessInstanceState() {
-		String processInstanceId = "17501";
+		String processInstanceId = "5001";
 		ProcessInstance pInstance = processEngine.getRuntimeService().createProcessInstanceQuery().processInstanceId(processInstanceId)
 				.singleResult();
 		//singleResult()返回的数据要么是单行，要么是空，其他情况报错
