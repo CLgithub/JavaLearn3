@@ -53,11 +53,11 @@
 		<!-- activiti end-->
 
 		<!-- 引用自己发布到私服的jar包 -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>mavenTest1</groupId>
 			<artifactId>mavenTest1</artifactId>
 			<version>1.0</version>
-		</dependency> -->
+		</dependency>
 	</dependencies>
 
 	<!--第三方jar包下载的地址默认是从中心仓库下载 -->
@@ -71,14 +71,14 @@
 			<!-- 配置仓库名称 -->
 			<!-- 配置仓库地址 -->
 			
-			<!-- <id>maven-public</id>
+			<id>maven-public</id>
 			<name>maven-public</name>
-			<url>http://localhost:8081/repository/maven-public/</url> -->
+			<url>http://localhost:8081/repository/maven-public/</url>
 			
 			<!-- 中央服务器 -->
-			<id>central</id>
+			<!-- <id>central</id>
 			<name>Central Repository</name>
-			<url>http://repo.maven.apache.org/maven2</url>
+			<url>http://repo.maven.apache.org/maven2</url> -->
 			<layout>default</layout>
 		</repository>
 	</repositories>
@@ -91,13 +91,13 @@
 			<!-- 配置仓库id -->
 			<!-- 配置仓库名称 -->
 			<!-- 配置仓库地址 -->
-			<!-- <id>maven-public</id>
+			<id>maven-public</id>
 			<name>maven-public</name>
-			<url>http://localhost:8081/repository/maven-public/</url> -->
+			<url>http://localhost:8081/repository/maven-public/</url>
 			<!-- 中央服务器 -->
-			<id>central</id>
+			<!-- <id>central</id>
 			<name>Central Repository</name>
-			<url>http://repo.maven.apache.org/maven2</url>
+			<url>http://repo.maven.apache.org/maven2</url> -->
 			<layout>default</layout>
 			<snapshots>
 				<enabled>false</enabled>
@@ -108,13 +108,13 @@
 	<distributionManagement>
 		<!-- 发布到快照版本的仓库，即测试版本仓库 -->
 		<snapshotRepository>
-			<id>LR-Snapshot</id><!-- 配置放到那个仓库 -->
-			<url>http://localhost:8081/repository/LR-Snapshot/</url><!--对应的仓库地址 -->
+			<id>maven-snapshots</id><!-- 配置放到那个仓库 -->
+			<url>http://localhost:8081/repository/maven-snapshots/</url><!--对应的仓库地址 -->
 		</snapshotRepository>
 		<!-- 发布到发行版本的仓库，也可以发布到3rd party仓库 -->
 		<repository>
-			<id>LR-release</id><!-- 配置放到那个仓库 -->
-			<url>http://localhost:8081/repository/LR-release/</url><!-- 对应的仓库地址 -->
+			<id>maven-releases</id><!-- 配置放到那个仓库 -->
+			<url>http://localhost:8081/repository/maven-releases/</url><!-- 对应的仓库地址 -->
 		</repository>
 	</distributionManagement>
 </project>
