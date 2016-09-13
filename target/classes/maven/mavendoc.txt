@@ -55,6 +55,15 @@
 			配置本地仓库地址，已经服务器的校验
 				<!-- 配置本地仓库路径 -->
 				<localRepository>D:/apachemaven_repo/repository</localRepository>
+				
+			配置私服权限
+				<!-- 配置私服权限 -->
+				<server>
+					<id>maven-public</id>
+					<username>admin</username>
+					<password>admin123</password>
+				</server>
+				
 		lib
 			共享库。maven软件依赖的lib jar包
 				
@@ -117,6 +126,8 @@
 			  </releases>
 			</pluginRepository>
 		  </pluginRepositories>
+		  
+
 
 			
 搭建maven的私服
