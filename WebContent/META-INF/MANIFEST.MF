@@ -1,6 +1,2 @@
 Manifest-Version: 1.0
 Class-Path: 
-<<<<<<< HEAD
-
-=======
->>>>>>> 63af5b27d4d7deca441be07f3a242c4d5ddf2967

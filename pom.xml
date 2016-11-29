@@ -77,16 +77,22 @@
 			<url>http://localhost:8081/repository/maven-public/</url> -->
 			
 			<!-- v2 -->
+			<!-- <id>public</id>
+			<name>Public Repositories</name>
+			<url>http://localhost:8081/nexus/content/groups/public/</url> -->
+			
+			<!-- ultrapower -->
 			<id>public</id>
 			<name>Public Repositories</name>
-			<url>http://localhost:8081/nexus/content/groups/public/</url>
+			<url>http://192.168.182.87:8081/nexus/content/groups/public/</url>
+			<layout>default</layout>
 			
 			<!-- 中央服务器 -->
 			<!--<id>central</id>
 			<name>Central Repository</name>
 			<url>http://repo.maven.apache.org/maven2</url> -->
 			
-			<layout>default</layout>
+			<!-- <layout>default</layout> -->
 		</repository>
 	</repositories>
 	<!--maven的生命周期插件的下载地址 -->
@@ -105,16 +111,22 @@
 			<url>http://localhost:8081/repository/maven-public/</url> -->
 			
 			<!-- v2 -->
+			<!-- <id>public</id>
+			<name>Public Repositories</name>
+			<url>http://localhost:8081/nexus/content/groups/public/</url> -->
+			
+			<!-- ultrapower -->
 			<id>public</id>
 			<name>Public Repositories</name>
-			<url>http://localhost:8081/nexus/content/groups/public/</url>
+			<url>http://192.168.182.87:8081/nexus/content/groups/public/</url>
+			<layout>default</layout>
 			
 			<!-- 中央服务器 -->
 			<!--<id>central</id>
 			<name>Central Repository</name>
 			<url>http://repo.maven.apache.org/maven2</url> -->
 			
-			<layout>default</layout>
+			<!-- <layout>default</layout> -->
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
